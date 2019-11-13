@@ -20,10 +20,14 @@
 
         <ul>
             <%for( let index=0; index < list.length; index++) { %>
-            <li class="ninja-item"><%= list[index]%></li>
+            <form action="/delete" method="delete"></form>
+            <li class="ninja-item" id=<%= index %>><%= list[index] %></li>><%= list[index]%></li>texttext
+            <input class="user-button" type="submit" value="delete" />
             <% } %>
         </ul>
     </div>
+
+    <script> src = "./main.js"</script>
 </body>
 
 </html>
