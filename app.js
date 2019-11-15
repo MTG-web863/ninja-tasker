@@ -1,6 +1,7 @@
 //packages
 const express = require('express');
 const bodyParser = require('body-parser');
+const db = require("./models/index.js");
 //start up
 const app = express();
 //setting view engine
@@ -29,7 +30,10 @@ app.delete("./delete/:index", function (req, res) {
     res.json(list);
 });
 
-//server listening for request
-app.listen(3000, function () {
-    console.log("hello");
+db.sequelize.sync().then(function () {
+    //server listening for request
+    app.listen(3000, function (err) {
+        if (err) console.log(err);
+        console.log("hello");
+    });
 });
